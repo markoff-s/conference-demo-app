@@ -1,0 +1,2 @@
+# run as jar
+"C:\Program Files\Java\jdk-11.0.6\bin\java" -Dspring.profiles.active=prod -DDB_URL=jdbc:postgresql://localhost:5432/conference_app -DDB_PWD=postgres -DDB_USER=postgres -jar target/conference-demo-0.0.1-snapshot.jar

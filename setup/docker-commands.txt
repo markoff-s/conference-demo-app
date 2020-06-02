@@ -1,0 +1,8 @@
+// https://github.com/dlbunker/ps-first-spring-boot-app/tree/master/database/postgresql
+
+docker create --name postgres-demo -e POSTGRES_PASSWORD=postgres -p 5432:5432 postgres:11.5-alpine
+
+docker start postgres-demo
+
+docker exec -it postgres-demo psql -U postgres
+create database conference_app;
