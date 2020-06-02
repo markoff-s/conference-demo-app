@@ -10,7 +10,7 @@ management:
     web:
       exposure:
         include: "*"
-  #      include: info, health, metrics, loggers, beans, mappings
+  #      include: info, health, metrics, loggers, beans, mappings, readiness
   endpoint:
     health:
       show-details: always
