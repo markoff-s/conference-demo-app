@@ -17,11 +17,19 @@ public class HealthController {
     @Value("${app.version}")
     private String version;
 
+    @Value("#{systemProperties['user.country']}")
+    private String userCountry;
+
+    @Value("#{systemProperties['user.name']}")
+    private String userName;
+
     @GetMapping
     public ResponseEntity<Map> getHealthStatus() {
         Map statusMap = new HashMap<String, String>();
         statusMap.put("status", "up");
         statusMap.put("version", version);
+        statusMap.put("user_country", userCountry);
+        statusMap.put("user_name", userName);
 
         return new ResponseEntity<>(statusMap, HttpStatus.OK);
     }

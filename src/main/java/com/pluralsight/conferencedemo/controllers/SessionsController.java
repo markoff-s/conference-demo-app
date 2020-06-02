@@ -2,7 +2,6 @@ package com.pluralsight.conferencedemo.controllers;
 
 import com.pluralsight.conferencedemo.models.Session;
 import com.pluralsight.conferencedemo.services.SessionsService;
-import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
