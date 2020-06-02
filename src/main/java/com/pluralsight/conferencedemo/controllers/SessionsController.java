@@ -1,7 +1,7 @@
 package com.pluralsight.conferencedemo.controllers;
 
 import com.pluralsight.conferencedemo.models.Session;
-import com.pluralsight.conferencedemo.repositories.SessionRepository;
+import com.pluralsight.conferencedemo.services.SessionsService;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,15 +17,15 @@ import java.util.List;
 @RequestMapping(EndPoints.API + EndPoints.v1 + EndPoints.Sessions)
 public class SessionsController {
 
-    private final SessionRepository sessionRepository;
+    private final SessionsService sessionsService;
 
-    public SessionsController(SessionRepository sessionRepository) {
-        this.sessionRepository = sessionRepository;
+    public SessionsController(SessionsService sessionsService) {
+        this.sessionsService = sessionsService;
     }
 
     @GetMapping
     public ResponseEntity<List<Session>> getAllSessions() {
-        List<Session> sessions = sessionRepository.findAll(Sort.by(Sort.Direction.ASC, "id"));
+        List<Session> sessions = sessionsService.getAllSessions();
 
         return new ResponseEntity<>(sessions, HttpStatus.OK);
     }
@@ -34,7 +34,7 @@ public class SessionsController {
     public ResponseEntity<Session> getSessionById(@PathVariable Long id) {
 
         // this works fine without any annotations
-         Session session = sessionRepository.findById(id).orElse(null);
+         Session session = sessionsService.getSessionById(id);
 
         // this only works with @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) on the BaseEntity
 //        Session session = sessionRepository.getOne(id);
