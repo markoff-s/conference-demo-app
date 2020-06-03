@@ -1,9 +1,12 @@
 package com.pluralsight.conferencedemo.models;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity(name = "sessions")
+@Data
 public class Session extends BaseEntity {
     @Id
     @GeneratedValue
@@ -25,44 +28,4 @@ public class Session extends BaseEntity {
             joinColumns = {@JoinColumn(name = "session_id")},
             inverseJoinColumns = {@JoinColumn(name = "speaker_id")})
     private List<Speaker> speakers;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Integer getLength() {
-        return length;
-    }
-
-    public void setLength(Integer length) {
-        this.length = length;
-    }
-
-    public List<Speaker> getSpeakers() {
-        return speakers;
-    }
-
-    public void setSpeakers(List<Speaker> speakers) {
-        this.speakers = speakers;
-    }
 }
