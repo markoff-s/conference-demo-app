@@ -25,6 +25,6 @@ public class ReadinessEndpoint {
 
     @WriteOperation
     public void setAppIsReadyFromJMX() {
-        this.ready = "APP_IS_READY_FROM_JMX";
+        this.ready = "APP_IS_READY_FROM_JMX!    ";
     }
 }
