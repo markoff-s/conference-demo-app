@@ -10,12 +10,15 @@ import javax.sql.DataSource;
 @Configuration
 public class PersistenceConfiguration {
 
+//    @Value("${spring.datasource.url}")
     @Value("${spring.datasource.url}")
     private String dbUrl;
 
+//    @Value("${spring.datasource.username}")
     @Value("${spring.datasource.username}")
     private String userName;
 
+//    @Value("${spring.datasource.password}")
     @Value("${spring.datasource.password}")
     private String userPwd;
 
